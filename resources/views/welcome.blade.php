@@ -6,12 +6,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h1 class="title">Write the best title for your page.</h1>
-                <h4>Every landing page needs a small description after the big bold title, that's why we added this text here.
-                    Add here all the information that can make you or your product create the first impression.</h4>
+                <h1 class="title">Bienvenido a App Shop</h1>
+                <h4>Realiza pedidos en linea y te contactaremos para coordinar la entrega</h4>
                 <br />
                 <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-danger btn-raised btn-lg">
-                    <i class="fa fa-play"></i> Watch video
+                    <i class="fa fa-play"></i> Ver video
                 </a>
             </div>
         </div>
@@ -37,9 +36,8 @@
                             <div class="icon icon-primary">
                                 <i class="material-icons">chat</i>
                             </div>
-                            <h4 class="info-title">First Feature</h4>
-                            <p>Divide details about your product or agency work into parts. Write a few lines about each one.
-                                A paragraph describing a feature will be enough.</p>
+                            <h4 class="info-title">Atendemos a tus dudas</h4>
+                            <p>Tenemos un chat 24 horas los 7 dias atendiendo a las dudas y soporte para cada persona.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -47,9 +45,10 @@
                             <div class="icon icon-success">
                                 <i class="material-icons">verified_user</i>
                             </div>
-                            <h4 class="info-title">Second Feature</h4>
-                            <p>Divide details about your product or agency work into parts. Write a few lines about each one.
-                                A paragraph describing a feature will be enough.</p>
+                            <h4 class="info-title">Pago seguro</h4>
+                            <p>Todos los pedidos que hagas seran confirmados a traves de una llamada, si no te gusta, puedes 
+                                pagar al momento de entregar.
+                            </p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -57,9 +56,9 @@
                             <div class="icon icon-danger">
                                 <i class="material-icons">fingerprint</i>
                             </div>
-                            <h4 class="info-title">Third Feature</h4>
-                            <p>Divide details about your product or agency work into parts. Write a few lines about each one.
-                                A paragraph describing a feature will be enough.</p>
+                            <h4 class="info-title">Informacion privada</h4>
+                            <p>Los pedidos realizados solo lo sabras tu y a quien se los realices, tu informacion permanece aqui y tu controlas que se hace con 
+                            ella.</p>
                         </div>
                     </div>
                 </div>
@@ -74,9 +73,9 @@
                     @foreach ($products as $product)
                     <div class="col-md-4">
                         <div class="team-player">
-                            <img src="{{asset('/img/avatar.jpg')}}" alt="Thumbnail Image" class="img-raised img-circle">
+                            <img src="{{ $product->images()->first()->image }}" alt="Thumbnail Image" class="img-raised img-circle">
                             <h4 class="title">{{ $product->name }}<br />
-                                <small class="text-muted">Model</small>
+                                <small class="text-muted">{{$product->category->name}}</small>
                             </h4>
                             <p class="description">{{ $product->description}}</p>
                             <a href="#pablo" class="btn btn-simple btn-just-icon"><i class="fa fa-twitter"></i></a>
@@ -94,34 +93,33 @@
         <div class="section landing-section">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <h2 class="text-center title">Work with us</h2>
-                    <h4 class="text-center description">Divide details about your product or agency work into parts. Write a few lines about each one and contact
-                        us about any further collaboration. We will responde get back to you in a couple of hours.</h4>
+                    <h2 class="text-center title">Aun no te has registrado?</h2>
+                    <h4 class="text-center description">Registrate usando tus datos basicos, de todas maneras, podras realizar tus consultas con tus datos basicos.</h4>
                     <form class="contact-form">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Your Name</label>
+                                    <label class="control-label">Tu nombre</label>
                                     <input type="email" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group label-floating">
-                                    <label class="control-label">Your Email</label>
+                                    <label class="control-label">Tu Email</label>
                                     <input type="email" class="form-control">
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group label-floating">
-                            <label class="control-label">Your Messge</label>
+                            <label class="control-label">Tu Mensaje</label>
                             <textarea class="form-control" rows="4"></textarea>
                         </div>
 
                         <div class="row">
                             <div class="col-md-4 col-md-offset-4 text-center">
                                 <button class="btn btn-primary btn-raised">
-                                    Send Message
+                                    Enviar consulta
                                 </button>
                             </div>
                         </div>
