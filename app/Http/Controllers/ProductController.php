@@ -52,4 +52,14 @@ class ProductController extends Controller
 
         
     }
+    public function destroy($id)
+    {
+        //BORRAR PRODUCTO
+        $product = Product::find($id);
+        $product->delete();
+
+        return back();
+
+        
+    }
 }
