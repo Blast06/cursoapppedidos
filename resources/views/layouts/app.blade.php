@@ -17,8 +17,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 
     <!-- CSS Files -->
-    <link href=" {{ asset('css/bootstrap.min.css')}}"  rel="stylesheet" />
-<link href=" {{ asset('css/material-kit.css')}}" rel="stylesheet" />
+    <link href=" {{ asset('css/bootstrap.min.css')}}" rel="stylesheet" />
+    <link href=" {{ asset('css/material-kit.css')}}" rel="stylesheet" />
+
+    @yield('styles')
 
 </head>
 
@@ -33,14 +35,14 @@
 		            <span class="icon-bar"></span>
 		            <span class="icon-bar"></span>
         		</button>
-            <a class="navbar-brand" href="{{ url('/')}}">App Shop</a>
+                <a class="navbar-brand" href="{{ url('/')}}">App Shop</a>
             </div>
 
             <div class="collapse navbar-collapse" id="navigation-example">
                 <ul class="nav navbar-nav navbar-right">
                     @guest
-                        <li><a href="{{route('login')}}">Login</a></li>
-                        <li><a href="{{route('register')}}">Registrar</a></li>
+                    <li><a href="{{route('login')}}">Login</a></li>
+                    <li><a href="{{route('register')}}">Registrar</a></li>
                     @else
                     <li class="dropdown">
 
@@ -54,21 +56,19 @@
                                 <a href=" {{ url('/admin/products') }}">Gestionar productos</a>
                             </li>
                             @endif
-                            
+
                             <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">Salir</a>
 
-                                <form id="logout-form" action=" {{ route('logout') }}" method="POST"
-                                style="display: none;">
-                                {{ csrf_field() }}
+                                <form id="logout-form" action=" {{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
                                 </form>
                             </li>
                         </ul>
                     </li>
-                    @endguest
-
-                    {{-- <li>
+                    @endguest {{--
+                    <li>
                         <a href="https://twitter.com/CreativeTim" target="_blank" class="btn btn-simple btn-white btn-just-icon">
 							<i class="fa fa-twitter"></i>
 						</a>

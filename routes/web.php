@@ -16,10 +16,13 @@ Route::get('/', 'TestController@welcome');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/products/{id}', 'ProductController@show'); //mostrar
 
 
 
-Route::middleware(['auth','admin'])->prefix('admin')->group(function (){
+
+
+Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(function (){
     
 Route::get('/products', 'ProductController@index'); //listar
 Route::get('/products/create', 'ProductController@create'); //formulario
@@ -31,6 +34,7 @@ Route::post('/products/{id}/delete', 'ProductController@destroy'); //eliminar
 Route::get('/products/{id}/images', 'ImageController@index'); //listado de images de x id
 Route::post('/products/{id}/images', 'ImageController@store'); //almacenar
 Route::delete('/products/{id}/images', 'ImageController@destroy'); //borrar
+Route::get('/products/{id}/images/select/{image}', 'ImageController@select'); //borrar
 
 
 });
