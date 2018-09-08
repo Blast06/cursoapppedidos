@@ -15,7 +15,8 @@ class CreateCartsTable extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('order_date');
+            $table->date('order_date')->nullable();
+            $table->date('arrived_date')->nullable();
             $table->string('status'); // Active,Pending,Approved,Finished, Cancelled
             
             $table->timestamps();

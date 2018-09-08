@@ -17,6 +17,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/products/{id}', 'ProductController@show'); //mostrar
+Route::post('/cart', 'CartDetailController@store');
+Route::delete('/cart', 'CartDetailController@destroy');
 
 
 

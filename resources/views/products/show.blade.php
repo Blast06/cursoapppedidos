@@ -15,13 +15,18 @@
                         <img src="{{ $product->featured_image_url }}" alt="Circle Image" class="img-circle img-responsive img-raised">
                     </div>
                     <div class="name">
-                    <h3 class="title">{{$product->name}}</h3>
+                        <h3 class="title">{{$product->name}}</h3>
                         <h6>{{ $product->category->name }}</h6>
                     </div>
                 </div>
             </div>
             <div class="description text-center">
                 <p>{{ $product->longdescription }}</p>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal">
+                    <i class="material-icons">add</i>Agregar al carrito
+                </button>
             </div>
 
             <div class="row">
@@ -33,19 +38,16 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             @foreach ($imagesLeft as $image)
-                                            <img src="{{ $image->url }}" class="img-rounded" />
-                                            @endforeach
-                                            
+                                            <img src="{{ $image->url }}" class="img-rounded" /> @endforeach
+
                                         </div>
                                         <div class="col-md-6">
                                             @foreach ($imagesRight as $image)
-                                            <img src="{{ $image->url }}" class="img-rounded" />
-                                                
-                                            @endforeach
+                                            <img src="{{ $image->url }}" class="img-rounded" /> @endforeach
                                         </div>
                                     </div>
                                 </div>
-                               
+
 
                             </div>
                         </div>
@@ -57,5 +59,28 @@
         </div>
     </div>
 </div>
-    @include('includes.footer')
+
+{{-- Modal --}}
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Seleccione la cantidad</h4>
+            </div>
+            <form action=" {{ url('/cart') }}" method="POST">
+                {{ csrf_field() }}
+                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                <div class="modal-body">
+                    <input type="number" name="quantity" value="1" class="form-control">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default btn-simple" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-info btn-simple">Agregar al carrito</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@include('includes.footer')
 @endsection
